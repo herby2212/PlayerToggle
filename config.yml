@@ -1,0 +1,95 @@
+#Config of the plugin use Oe,Ue,Ae for umlauts! Do not change the main Structure of the config or you get a error message on server start!#
+PlayerToggle:
+  MySQL:
+    Enabled: false
+    Host: 'localhost'
+    Port: '3306'
+    database: 'PlayerToggle'
+    Username: 'localhost'
+    Pasword: 'yourpassword1'
+  AutoUpdater: true
+  CustomPrefix: '&4[&aPlayerToggle&4] '
+  NoPermMessage: '&cYou do not have the right permission!'
+  PlayerNotOnline: '&c&lThe player is not online!'
+  PlayerAddToFriendList: '&aYou add the player &e[PN] &ato your friend list!'
+  PlayerRemoveFromFriendList: '&cYou removed the player &e[PN] &cfrom your friend list!'
+  PlayerNotOnYourFriendList: '&cThe player is not on your friend list!'
+  PlayerAlreadyOnYourFriendList: '&cThe player is already on your friend list!'
+  FriendList: '&c&lFriends: &e'
+  FriendListSeparator: '&c,&e '
+  FriendOnline: ' &7[&aOnline&7]'
+  FriendOffline: ' &7[&cOffline&7]'
+  NoFriends: '&c&lYou dont have any friends in your list!'
+  InventoryMode: false
+  Inventory:
+    InventoryTitle: '&aVisibility'
+    Item1:
+      Material: 'YELLOW_DYE'
+      Name: '&cHide all players'
+      Lore: '&7&oHide all players on the server'
+    Item2:
+      Material: 'ORANGE_DYE'
+      Name: '&eOnly show friends + team members'
+      Lore: '&7&oOnly show friends + team members on the server'
+      EffectOnToggle: MOBSPAWNER_FLAMES
+      SoundOnToggle: ENTITY_BAT_TAKEOFF
+    Item3:
+      Material: 'LIME_DYE'
+      Name: '&aShow all players'
+      Lore: '&7&oShow all players on the server'
+    Filler:
+      Material: 'BLACK_STAINED_GLASS_PANE'
+      Name: ' '
+      Lore: ''
+  Items:
+    Toggler1:
+      Material: 'LIME_DYE'
+      Slot(0-8): 8
+      Name: '&e>>> &aShow Players &e<<<'
+      Lore: '&7&oRight-Click'
+      EffectOnToggle: ENDER_SIGNAL
+      SoundOnToggle: ENTITY_BAT_TAKEOFF
+    Toggler2:
+      Material: 'YELLOW_DYE'
+      Slot(0-8): 8
+      Name: '&e>>> &cHide Players &e<<<'
+      Lore: '&7&oRight-Click'
+      EffectOnToggle: MOBSPAWNER_FLAMES
+      SoundOnToggle: ENTITY_BAT_TAKEOFF
+  ItemOnJoin: true
+  DisableItemMove(OfTheTogglers): true
+  DisableItemDrop(OfTheTogglers): true
+  Cooldown:
+    CooldownOfToggle(InSeconds): 10
+    CooldownMessage: '&cPlease wait &e[T] &cseconds! Before you can use the Item again!'
+  ActionBar:
+    Enabled: true
+    Visible: '&6Players &8>> &2Visible'
+    Hidden: '&6Players &8>> &4Hidden'
+    Friends: '&6Players &8>> &6Friends'
+  Titles:
+    Enabled: true
+    FadeIn: 20
+    Stay: 30
+    FadeOut: 20
+    Title:
+      Visible: '&6>> &a&lVisible &6<<'
+      Hidden: '&6>> &c&lHidden &6<<'
+      Friends: '&6>> &6&lFriends &6<<'
+    Subtitle:
+      Visible: ''
+      Hidden:  ''
+      Friends: ''
+  ToggleMessage:
+    Visible: '&eAll players are now &avisible!'
+    Hidden: '&eAll players are now &chidden!'
+    Friends: '&eAll players except your friends are now hidden!'
+  AlreadyVisible/HiddenItemUse:
+    Visible: '&eThe players are already &avisible!'
+    Hidden: '&eThe players are already &chidden!'
+    Friends: '&cAll players except your friends are already hidden!'
+  Worlds:
+  - lobby
+  - hub
+  - world
+  
