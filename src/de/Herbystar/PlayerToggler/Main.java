@@ -72,15 +72,6 @@ public class Main extends JavaPlugin {
 			
 			@Override
 			public void run() {
-//				for(Entry<UUID, Integer> entry : cooldownQueue.entrySet()) {
-//					int cd = entry.getValue();
-//					UUID key = entry.getKey();
-//					if(cd == 1) {
-//						cooldownQueue.remove(key);
-//					} else {
-//						entry.setValue(cd - 1);
-//					}
-//				}
 				try {
 					Iterator<Entry<UUID,Integer>> entryIterator = cooldownQueue.entrySet().iterator();
 					while(entryIterator.hasNext()) {

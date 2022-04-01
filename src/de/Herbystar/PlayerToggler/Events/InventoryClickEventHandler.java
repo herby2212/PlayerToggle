@@ -41,13 +41,11 @@ public class InventoryClickEventHandler implements Listener {
 		if(plugin.getConfig().getBoolean("PlayerToggle.DisableItemMove(OfTheTogglers)") && plugin.getConfig().getStringList("PlayerToggle.Worlds").contains(p.getWorld().getName())) {
 			if(e.getCurrentItem() != null) {
 				if(ItemHandler.compareMaterials(e.getCurrentItem().getType(), 1)) {
-//				if(typeId == plugin.getConfig().getInt("PlayerToggle.Items.Toggler1.ID", (byte) plugin.getConfig().getInt("PlayerToggle.Items.Toggler1.DataValue"))) {
 					if(e.getCurrentItem().hasItemMeta() && e.getCurrentItem().getItemMeta().getDisplayName().equals(plugin.getConfig().getString("PlayerToggle.Items.Toggler1.Name").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä"))) {
 						e.setCancelled(true);
 					}
 				}
 				if(ItemHandler.compareMaterials(e.getCurrentItem().getType(), 2)) {
-//				if(typeId == plugin.getConfig().getInt("PlayerToggle.Items.Toggler2.ID", (byte) plugin.getConfig().getInt("PlayerToggle.Items.Toggler2.DataValue"))) {
 					if(e.getCurrentItem().hasItemMeta() && e.getCurrentItem().getItemMeta().getDisplayName().equals(plugin.getConfig().getString("PlayerToggle.Items.Toggler2.Name").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä"))) {
 						e.setCancelled(true);
 					}
