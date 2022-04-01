@@ -1,0 +1,30 @@
+name: PlayerToggle
+main: de.Herbystar.PlayerToggler.Main
+api-version: 1.13
+version: 4.8
+author: Herbystar
+description: A Plugin to toggle the Player Visibility!
+commands:
+  ptoggle:
+    usage: /ptoggle
+    description: Toggle the player visibility!
+  pgui:
+    usage: /pgui
+    description: Open the inventory of the inventory mode with a command!
+  pfriend:
+    usage: /pfriend
+    description: Allows you to manage the friend system!
+  phelp:
+    usage: /phelp
+    description: Shows you all commands of the plugin.
+  preload:
+    usage: /preload
+    description: Reload the configuration!
+    permission: PlayerToggle.reload
+permissions:
+  PlayerToggle.CDBP:
+    description: Allows you to bypass the cooldown!
+  PlayerToggler.use:
+    description: Allows you to use the PlayerToggler!
+  PlayerToggle.WhiteList:
+    description: You are immun against any hide effects!
