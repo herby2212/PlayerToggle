@@ -9,10 +9,10 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-import b.TTA_Sounds;
 import de.Herbystar.PlayerToggler.Main;
 import de.Herbystar.PlayerToggler.Utilities.ItemHandler;
 import de.Herbystar.TTA.TTA_Methods;
+import de.Herbystar.TTA.Sound.TTA_Sounds;
 
 public class PlayerInteractEventHandler implements Listener {
 	

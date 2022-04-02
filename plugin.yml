@@ -24,7 +24,7 @@ commands:
 permissions:
   PlayerToggle.CDBP:
     description: Allows you to bypass the cooldown!
-  PlayerToggler.use:
+  PlayerToggle.use:
     description: Allows you to use the PlayerToggler!
   PlayerToggle.WhiteList:
     description: You are immun against any hide effects!

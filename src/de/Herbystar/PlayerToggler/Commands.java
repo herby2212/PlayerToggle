@@ -12,9 +12,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import b.TTA_Sounds;
 import de.Herbystar.PlayerToggler.Utilities.ItemHandler;
 import de.Herbystar.TTA.TTA_Methods;
+import de.Herbystar.TTA.Sound.TTA_Sounds;
 
 public class Commands implements CommandExecutor {
 	
