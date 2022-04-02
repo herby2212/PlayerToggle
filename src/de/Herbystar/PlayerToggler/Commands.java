@@ -12,9 +12,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import b.TTA_Sounds;
 import de.Herbystar.PlayerToggler.Utilities.ItemHandler;
 import de.Herbystar.TTA.TTA_Methods;
+import de.Herbystar.TTA.Sound.TTA_Sounds;
 
 public class Commands implements CommandExecutor {
 	
@@ -35,7 +35,6 @@ public class Commands implements CommandExecutor {
 			p = (Player) sender;
 			if(cmd.getName().equalsIgnoreCase("ptoggle") && p != null) {
 				if(!Main.instance.cooldownQueue.containsKey(p.getUniqueId()) || p.hasPermission("PlayerToggle.CDBP")) {
-//				if(!plugin.cooldown.contains(p.getName()) | p.hasPermission("PlayerToggle.CDBP")) {
 					if(!plugin.PT.contains(p.getName())) {
 						for(Player players : plugin.notwhitelist) {
 							try {
@@ -46,25 +45,9 @@ public class Commands implements CommandExecutor {
 						}
 						plugin.PT.add(p.getName());
 						plugin.hidden.add(p.getName());
-//						plugin.cooldown.add(p.getName());
 						
 						if(!p.hasPermission("PlayerToggle.CDBP")) {
 							Main.instance.cooldownQueue.put(p.getUniqueId(), Main.instance.cd);
-//							plugin.cd3id = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
-//
-//								@Override
-//								public void run() {
-//									plugin.cd -= 1;
-//									if(plugin.cd == 0) {
-//										plugin.cooldown.remove(sender.getName());
-//										plugin.cd = plugin.getConfig().getInt("PlayerToggle.Cooldown.CooldownOfToggle(InSeconds)");
-//										Bukkit.getScheduler().cancelTask(plugin.cd3id);
-//									}
-//									
-//								}
-//								
-//							}
-//							, 0L, 20L);
 						}
 						
 						String t = plugin.getConfig().getString("PlayerToggle.Titles.Title.Hidden").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä");
@@ -90,25 +73,9 @@ public class Commands implements CommandExecutor {
 						}
 						plugin.PT.remove(p.getName());
 						plugin.hidden.remove(p.getName());
-//						plugin.cooldown.add(p.getName());
 						
 						if(!p.hasPermission("PlayerToggle.CDBP")) {
 							Main.instance.cooldownQueue.put(p.getUniqueId(), Main.instance.cd);
-//							plugin.cd4id = Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable() {
-//
-//								@Override
-//								public void run() {
-//									plugin.cd -= 1;
-//									if(plugin.cd == 0) {
-//										plugin.cooldown.remove(sender.getName());
-//										plugin.cd = plugin.getConfig().getInt("PlayerToggle.Cooldown.CooldownOfToggle(InSeconds)");
-//										Bukkit.getScheduler().cancelTask(plugin.cd4id);
-//									}
-//									
-//								}
-//								
-//							}
-//							, 0L, 20L);
 						}
 						
 						String t = plugin.getConfig().getString("PlayerToggle.Titles.Title.Visible").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä");
@@ -123,12 +90,10 @@ public class Commands implements CommandExecutor {
 						}						
 
 			            p.sendMessage(plugin.prefix + plugin.getConfig().getString("PlayerToggle.ToggleMessage.Visible").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä"));
-//				        p.sendMessage(plugin.prefix + plugin.getConfig().getString("PlayerToggle.Cooldown.CooldownMessage").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä").replace("[T]", new StringBuilder(String.valueOf(plugin.cd)).toString()));
 				        return true;
 					}
 				} else {
 					p.sendMessage(plugin.prefix + plugin.getConfig().getString("PlayerToggle.Cooldown.CooldownMessage").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä").replace("[T]", new StringBuilder(String.valueOf(Main.instance.cooldownQueue.get(p.getUniqueId()))).toString()));
-//			        p.sendMessage(plugin.prefix + plugin.getConfig().getString("PlayerToggle.Cooldown.CooldownMessage").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä").replace("[T]", new StringBuilder(String.valueOf(plugin.cd)).toString()));
 			        return true;
 				}
 			}
@@ -146,34 +111,6 @@ public class Commands implements CommandExecutor {
 			if(cmd.getName().equalsIgnoreCase("pgui") && p != null) {
 				if(plugin.getConfig().getBoolean("PlayerToggle.InventoryMode") == true) {
 					plugin.inv = Bukkit.getServer().createInventory(p, 9, plugin.getConfig().getString("PlayerToggle.Inventory.InventoryTitle").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä"));
-			          
-//					ItemStack Filler = new ItemStack(Material.BLACK_STAINED_GLASS_PANE, 1);
-////					  ItemStack Filler = new ItemStack(plugin.getConfig().getInt("PlayerToggle.Inventory.Filler.ID"), 1, (byte)plugin.getConfig().getInt("PlayerToggle.Inventory.Filler.DataValue"));
-//			          ItemMeta FillerM = Filler.getItemMeta();
-//			          FillerM.setLore(Arrays.asList(new String[] { plugin.getConfig().getString("PlayerToggle.Inventory.Filler.Lore").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä") }));
-//			          FillerM.setDisplayName(plugin.getConfig().getString("PlayerToggle.Inventory.Filler.Name").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä"));
-//			          Filler.setItemMeta(FillerM);
-//
-//			          ItemStack I1 = new ItemStack(Material.YELLOW_DYE, 1);
-////			          ItemStack I1 = new ItemStack(plugin.getConfig().getInt("PlayerToggle.Inventory.Item1.ID"), 1, (byte)plugin.getConfig().getInt("PlayerToggle.Inventory.Item1.DataValue"));
-//			          ItemMeta I1M = I1.getItemMeta();
-//			          I1M.setLore(Arrays.asList(new String[] { plugin.getConfig().getString("PlayerToggle.Inventory.Item1.Lore").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä") }));
-//			          I1M.setDisplayName(plugin.getConfig().getString("PlayerToggle.Inventory.Item1.Name").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä"));
-//			          I1.setItemMeta(I1M);
-//
-//			          ItemStack I2 = new ItemStack(Material.ORANGE_DYE, 1);
-////			          ItemStack I2 = new ItemStack(plugin.getConfig().getInt("PlayerToggle.Inventory.Item2.ID"), 1, (byte)plugin.getConfig().getInt("PlayerToggle.Inventory.Item2.DataValue"));
-//			          ItemMeta I2M = I1.getItemMeta();
-//			          I2M.setLore(Arrays.asList(new String[] { plugin.getConfig().getString("PlayerToggle.Inventory.Item2.Lore").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä") }));
-//			          I2M.setDisplayName(plugin.getConfig().getString("PlayerToggle.Inventory.Item2.Name").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä"));
-//			          I2.setItemMeta(I2M);
-//			          
-//			          ItemStack I3 = new ItemStack(Material.LIME_DYE, 1);
-////			          ItemStack I3 = new ItemStack(plugin.getConfig().getInt("PlayerToggle.Inventory.Item3.ID"), 1, (byte)plugin.getConfig().getInt("PlayerToggle.Inventory.Item3.DataValue"));
-//			          ItemMeta I3M = I3.getItemMeta();
-//			          I3M.setLore(Arrays.asList(new String[] { plugin.getConfig().getString("PlayerToggle.Inventory.Item3.Lore").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä") }));
-//			          I3M.setDisplayName(plugin.getConfig().getString("PlayerToggle.Inventory.Item3.Name").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä"));
-//			          I3.setItemMeta(I3M);
 					
 					ItemStack Filler = ItemHandler.returnCustomizedItemStack(10);
 					ItemStack I1 = ItemHandler.returnCustomizedItemStack(5);

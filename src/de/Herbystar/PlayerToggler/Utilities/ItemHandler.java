@@ -44,7 +44,6 @@ public class ItemHandler {
 		XMaterial xm = XMaterial.matchXMaterial(material).get();
 
 		ItemStack PS = xm.parseItem();
-//	    ItemStack PS3 = new ItemStack(plugin.getConfig().getInt("PlayerToggle.Items.Toggler1.ID"), 1, (byte)plugin.getConfig().getInt("PlayerToggle.Items.Toggler1.DataValue"));
 	    ItemMeta PSMeta = PS.getItemMeta();
 	    PSMeta.setLore(Arrays.asList(new String[] { Main.instance.getConfig().getString(configPath + "Lore").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä") }));
 	    PSMeta.setDisplayName(Main.instance.getConfig().getString(configPath + "Name").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä"));
