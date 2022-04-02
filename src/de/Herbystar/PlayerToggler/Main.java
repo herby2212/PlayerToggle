@@ -49,17 +49,18 @@ public class Main extends JavaPlugin {
 	private BukkitTask cooldownTask;
 	public HashMap<UUID, Integer> cooldownQueue = new HashMap<UUID, Integer>();
 	
-	public void onEnable() {
-		loadConfig();
-		instance = this;
-		getCommands();
-		getEvents();
+	public void onEnable() {	
+		instance = this;	
 		if(this.CheckDepends() == false) {
 			Bukkit.getServer().getConsoleSender().sendMessage("§4[§aPlayerToggle§4] §cYou need to download §eTTA§c!");
 			Bukkit.getServer().getConsoleSender().sendMessage("§4[§aPlayerToggle§4] §cPlayerToggle will now shut down!");
 			Bukkit.getServer().getPluginManager().disablePlugin(this);
 			return;
 		}
+		
+		loadConfig();
+		getCommands();
+		getEvents();
 		
 		if(getConfig().getBoolean("PlayerToggle.MySQL.Enabled") == true) {
 			MySQL m = new MySQL(this);
@@ -98,7 +99,9 @@ public class Main extends JavaPlugin {
 			m.disconnect();  
 		}
 		
-		Main.instance.cooldownTask.cancel();
+		if(Main.instance.cooldownTask != null) {
+			Main.instance.cooldownTask.cancel();
+		}
 		
 		Bukkit.getConsoleSender().sendMessage("§4[§aPlayerToggle§4] " + ChatColor.AQUA + "Version: " + getDescription().getVersion() + " §aby " + "§c" + getDescription().getAuthors() + ChatColor.GREEN + ChatColor.RED + " disabled!");
 	}
