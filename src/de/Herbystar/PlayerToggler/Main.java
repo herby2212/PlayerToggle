@@ -106,7 +106,9 @@ public class Main extends JavaPlugin {
 	//Depends Hook (If false PlayerToggle not work!)
 	public boolean CheckDepends() {
 		if(Bukkit.getServer().getPluginManager().getPlugin("TTA") != null) {
-			return true;
+			if(Bukkit.getServer().getPluginManager().getPlugin("TTA").isEnabled() == true) {
+				return true;
+			}
 		}
 		return false;		
 	}

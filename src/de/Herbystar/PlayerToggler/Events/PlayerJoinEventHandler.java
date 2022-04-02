@@ -19,8 +19,7 @@ public class PlayerJoinEventHandler implements Listener {
 		Player p = e.getPlayer();
 		if(p.isOp() && plugin.UpdateAviable == true) {
 			if(plugin.getConfig().getBoolean("PlayerToggle.AutoUpdater") == true) {
-	    	    p.sendMessage("§4[§aPlayerToggle§4] §a-=> Update is available! <=-");
-	    	    p.sendMessage("§aDownload: §ehttp://herbystar.eu/resources/ultimate-playertoggle.17/");
+//	    	    p.sendMessage("§4[§aPlayerToggle§4] §a-=> Update is available! <=-");
 			}
 		}
 		plugin.notwhitelist.add(p);
