@@ -57,12 +57,13 @@ public class PlayerInteractEventHandler implements Listener {
 					            
 						            p.sendMessage(plugin.prefix + plugin.getConfig().getString("PlayerToggle.ToggleMessage.Hidden").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä"));
 						            p.playEffect(p.getLocation(), Effect.valueOf(plugin.getConfig().getString("PlayerToggle.Items.Toggler2.EffectOnToggle").toUpperCase()), 4);
-						            try {
-							            p.playSound(p.getLocation(), TTA_Sounds.GetSoundByName(plugin.getConfig().getString("PlayerToggle.Items.Toggler2.SoundOnToggle").toUpperCase()), 10, 1);
-						            } catch(Exception ex) {
-				    		        	Bukkit.getConsoleSender().sendMessage("§4[§aPlayerToggle§4] §cError while playing sound effect! \n Name of the sound need to be replaced to match the current MC version!");
+						            if(plugin.getConfig().getBoolean("PlayerToggle.PlaySoundOnItemUse") == true) {
+						            	try {
+								            p.playSound(p.getLocation(), TTA_Sounds.GetSoundByName(plugin.getConfig().getString("PlayerToggle.Items.Toggler2.SoundOnToggle").toUpperCase()), 10, 1);
+							            } catch(Exception ex) {
+					    		        	Bukkit.getConsoleSender().sendMessage("§4[§aPlayerToggle§4] §cError while playing sound effect! \n Name of the sound need to be replaced to match the current MC version!");
+							            }
 						            }
-
 						            
 									String t = plugin.getConfig().getString("PlayerToggle.Titles.Title.Hidden").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä");
 									String st = plugin.getConfig().getString("PlayerToggle.Titles.Subtitle.Hidden").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä");
@@ -108,11 +109,13 @@ public class PlayerInteractEventHandler implements Listener {
 						            p.sendMessage(plugin.prefix + plugin.getConfig().getString("PlayerToggle.ToggleMessage.Visible").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä"));
 
 						            p.playEffect(p.getLocation(), Effect.valueOf(plugin.getConfig().getString("PlayerToggle.Items.Toggler1.EffectOnToggle").toUpperCase()), 4);
-						            try {
-							            p.playSound(p.getLocation(), TTA_Sounds.GetSoundByName(plugin.getConfig().getString("PlayerToggle.Items.Toggler1.SoundOnToggle").toUpperCase()), 10, 1);
-						            } catch(Exception ex) {
-				    		        	Bukkit.getConsoleSender().sendMessage("§4[§aPlayerToggle§4] §cError while playing sound effect! \n Name of the sound need to be replaced to match the current MC version!");
-						            }
+						            if(plugin.getConfig().getBoolean("PlayerToggle.PlaySoundOnItemUse") == true) {
+						            	try {
+								            p.playSound(p.getLocation(), TTA_Sounds.GetSoundByName(plugin.getConfig().getString("PlayerToggle.Items.Toggler1.SoundOnToggle").toUpperCase()), 10, 1);
+							            } catch(Exception ex) {
+					    		        	Bukkit.getConsoleSender().sendMessage("§4[§aPlayerToggle§4] §cError while playing sound effect! \n Name of the sound need to be replaced to match the current MC version!");
+							            }
+						            }						          
 						            
 									String t = plugin.getConfig().getString("PlayerToggle.Titles.Title.Visible").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä");
 									String st = plugin.getConfig().getString("PlayerToggle.Titles.Subtitle.Visible").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä");

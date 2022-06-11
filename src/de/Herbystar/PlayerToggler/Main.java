@@ -49,7 +49,7 @@ public class Main extends JavaPlugin {
 	private BukkitTask cooldownTask;
 	public HashMap<UUID, Integer> cooldownQueue = new HashMap<UUID, Integer>();
 	
-	public void onEnable() {	
+	public void onEnable() {
 		instance = this;	
 		if(this.CheckDepends() == false) {
 			Bukkit.getServer().getConsoleSender().sendMessage("§4[§aPlayerToggle§4] §cYou need to download §eTTA§c!");

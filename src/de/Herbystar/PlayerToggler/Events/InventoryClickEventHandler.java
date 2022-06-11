@@ -70,11 +70,14 @@ public class InventoryClickEventHandler implements Listener {
 	    				plugin.I3IIAS.remove(p.getName());
 	    				
 	    		        p.playEffect(p.getLocation(), Effect.valueOf(plugin.getConfig().getString("PlayerToggle.Items.Toggler2.EffectOnToggle").toUpperCase()), 4);
-	    		        try {
-	    		        	p.playSound(p.getLocation(), TTA_Sounds.GetSoundByName(plugin.getConfig().getString("PlayerToggle.Items.Toggler2.SoundsOnToggle").toUpperCase()), 10, 1);
-	    		        } catch(Exception ex) {
-	    		        	Bukkit.getConsoleSender().sendMessage("§4[§aPlayerToggle§4] §cError while playing Sounds effect! \n Name of the Sounds need to be replaced to match the current MC version!");
-	    		        }    		        
+	    		        if(plugin.getConfig().getBoolean("PlayerToggle.PlaySoundOnItemUse") == true) {
+		    		        try {
+		    		        	
+		    		        	p.playSound(p.getLocation(), TTA_Sounds.GetSoundByName(plugin.getConfig().getString("PlayerToggle.Items.Toggler2.SoundsOnToggle").toUpperCase()), 10, 1);
+		    		        } catch(Exception ex) {
+		    		        	Bukkit.getConsoleSender().sendMessage("§4[§aPlayerToggle§4] §cError while playing Sounds effect! \n Name of the Sounds need to be replaced to match the current MC version!");
+		    		        }
+    		        	}
 	    		        
 	    		        p.sendMessage(plugin.prefix + plugin.getConfig().getString("PlayerToggle.ToggleMessage.Hidden").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä"));
 	    		        
@@ -116,11 +119,13 @@ public class InventoryClickEventHandler implements Listener {
 	    				}
 	    				plugin.nofriends.clear();
 	    		        p.playEffect(p.getLocation(), Effect.valueOf(plugin.getConfig().getString("PlayerToggle.Inventory.Item2.EffectOnToggle").toUpperCase()), 4);
-	    		        try {
-	    		        	p.playSound(p.getLocation(), TTA_Sounds.GetSoundByName(plugin.getConfig().getString("PlayerToggle.Inventory.Item2.SoundsOnToggle").toUpperCase()), 10, 1);
-	    		        } catch(Exception ex) {
-	    		        	Bukkit.getConsoleSender().sendMessage("§4[§aPlayerToggle§4] §cError while playing Sounds effect! \n Name of the Sounds need to be replaced to match the current MC version!");
-	    		        }    		        
+	    		        if(plugin.getConfig().getBoolean("PlayerToggle.PlaySoundOnItemUse") == true) {
+	    		        	try {
+		    		        	p.playSound(p.getLocation(), TTA_Sounds.GetSoundByName(plugin.getConfig().getString("PlayerToggle.Inventory.Item2.SoundsOnToggle").toUpperCase()), 10, 1);
+		    		        } catch(Exception ex) {
+		    		        	Bukkit.getConsoleSender().sendMessage("§4[§aPlayerToggle§4] §cError while playing Sounds effect! \n Name of the Sounds need to be replaced to match the current MC version!");
+		    		        }
+	    		        }
 
 	    				plugin.I1IIAS.remove(p.getName());
 	    				plugin.I2IIAS.add(p.getName());
@@ -158,11 +163,13 @@ public class InventoryClickEventHandler implements Listener {
 	    				plugin.I2IIAS.remove(p.getName());
 	    				
 	    		        p.playEffect(p.getLocation(), Effect.valueOf(plugin.getConfig().getString("PlayerToggle.Items.Toggler1.EffectOnToggle").toUpperCase()), 4);
-	    		        try {
-	    		        	p.playSound(p.getLocation(), TTA_Sounds.GetSoundByName(plugin.getConfig().getString("PlayerToggle.Items.Toggler1.SoundsOnToggle").toUpperCase()), 10, 1);
-	    		        } catch(Exception ex) {
-	    		        	Bukkit.getConsoleSender().sendMessage("§4[§aPlayerToggle§4] §cError while playing Sounds effect! \n Name of the Sounds need to be replaced to match the current MC version!");
-	    		        }    		        
+	    		        if(plugin.getConfig().getBoolean("PlayerToggle.PlaySoundOnItemUse") == true) {
+	    		        	try {
+		    		        	p.playSound(p.getLocation(), TTA_Sounds.GetSoundByName(plugin.getConfig().getString("PlayerToggle.Items.Toggler1.SoundsOnToggle").toUpperCase()), 10, 1);
+		    		        } catch(Exception ex) {
+		    		        	Bukkit.getConsoleSender().sendMessage("§4[§aPlayerToggle§4] §cError while playing Sounds effect! \n Name of the Sounds need to be replaced to match the current MC version!");
+		    		        }
+	    		        }
 	    		        
 	    		        p.sendMessage(plugin.prefix + plugin.getConfig().getString("PlayerToggle.ToggleMessage.Visible").replace("&", "§").replace("Oe", "Ö").replace("oe", "ö").replace("Ue", "Ü").replace("Ae", "Ä").replace("ae", "ä"));
 	    		        

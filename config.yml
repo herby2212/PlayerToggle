@@ -59,6 +59,7 @@ PlayerToggle:
   ItemOnJoin: true
   DisableItemMove(OfTheTogglers): true
   DisableItemDrop(OfTheTogglers): true
+  PlaySoundOnItemUse: true
   Cooldown:
     CooldownOfToggle(InSeconds): 10
     CooldownMessage: '&cPlease wait &e[T] &cseconds! Before you can use the Item again!'
