@@ -1,7 +1,7 @@
 name: PlayerToggle
 main: de.Herbystar.PlayerToggler.Main
 api-version: 1.13
-version: 5.0-SNAPSHOT
+version: 5.0
 author: Herbystar
 description: A Plugin to toggle the Player Visibility!
 commands:
